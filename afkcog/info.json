@@ -1,0 +1,13 @@
+{
+	"author": [
+		"aikaterna",
+        "Axas",
+        "posttwo"
+	],
+	"description": "Set and unset a user as being away. Originally by Paddo.",
+	"short": "Away message toggle for users",
+	"tags": [
+		"away"
+	],
+	"type": "COG"
+}
