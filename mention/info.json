@@ -1,0 +1,11 @@
+{
+	"author": [
+        "posttwo"
+	],
+	"description": "Mentions users.",
+	"short": "mentions users",
+	"tags": [
+		"mention"
+	],
+	"type": "COG"
+}
