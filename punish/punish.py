@@ -25,7 +25,7 @@ class PunishCog(BaseCog):
     @checks.mod_or_permissions(manage_messages=True)
     async def punish_remove(self, ctx, member: discord.Member):
         """Allows user to have nickname changed"""
-        await self.config.member(member).clear_raw("forced_nickname")
+        await self.config.member(member).forced_nickname.clear()
         await ctx.send('{0} is now able to change his username'.format(member))
     
     @punish.command(pass_context=True, no_pm=True, name='list')
