@@ -41,5 +41,5 @@ class PunishCog(BaseCog):
             return
 
         if before.nick != after.nick and after.nick != member_data:
-            await self.bot.change_nickname(after, member_data['nickname'])
+            await after.edit(nick=member_data, reason="Punished user")
             await self.bot.send_message(after, '{0} youre not allowed to change your nickname'.format(after.mention))
