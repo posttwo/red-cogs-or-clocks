@@ -29,7 +29,7 @@ class Mention(BaseCog):
     @commands.command()
     async def reverse(self, ctx, fjusername):
         """Discord mention to FunnyJunk username"""
-        auth_token = await self.bot.db.api_tokens.get_raw("fjmeme", default={"token": None})
+        auth_token = await self.bot.get_shared_api_tokens("fjmeme")
         hed = {'Authorization': 'Bearer ' + auth_token['token']}
 
         for mention in ctx.message.mentions:
