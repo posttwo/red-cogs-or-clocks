@@ -31,7 +31,8 @@ class PunishCog(BaseCog):
     @punish.command(pass_context=True, no_pm=True, name='list')
     async def punish_list(self, ctx):
         """Lists users that are blocked from changing their nickname"""
-        await ctx.send("Yeah this is fucked sorry.")
+        data = await self.config.all_members()
+        await ctx.send("Yeah this is fucked sorry. {0}".format(data))
         
     @commands.Cog.listener()
     async def on_member_update(self, before, after):
@@ -45,4 +46,4 @@ class PunishCog(BaseCog):
         if before.nick != after.nick and after.nick != member_data:
             print("Trying to undo the name change")
             await after.edit(nick=member_data, reason="Punished user")
-            await after.send(content='{0} youre not allowed to change your nickname'.format(after.mention))
+            await after.send(content='{0} you are not allowed to change your nickname'.format(after.mention))
