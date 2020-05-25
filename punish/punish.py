@@ -36,7 +36,7 @@ class PunishCog(BaseCog):
     @commands.Cog.listener()
     async def on_member_update(self, before, after):
         print("Member updated")
-        member_data = await self.config.member(before).forced_nickname
+        member_data = self.config.member(before).forced_nickname
         if member_data == "":
             return
 
