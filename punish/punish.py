@@ -35,11 +35,12 @@ class PunishCog(BaseCog):
         
     @commands.Cog.listener()
     async def on_member_update(self, before, after):
-        print("Member updated")
         member_data = self.config.member(before).forced_nickname
         if member_data == "":
             return
 
         if before.nick != after.nick and after.nick != member_data:
+            print("Member updated nickname")
+            print(member_data)
             await after.edit(nick=member_data, reason="Punished user")
             await self.bot.send_message(after, '{0} youre not allowed to change your nickname'.format(after.mention))
