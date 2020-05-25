@@ -1,0 +1,11 @@
+{
+	"author": [
+        "posttwo"
+	],
+	"description": "Punishes users.",
+	"short": "punish users",
+	"tags": [
+		"punish"
+	],
+	"type": "COG"
+}
