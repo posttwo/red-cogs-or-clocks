@@ -33,7 +33,7 @@ class PunishCog(BaseCog):
         """Lists users that are blocked from changing their nickname"""
         await ctx.send("Yeah this is fucked sorry.")
         
-        
+    @commands.Cog.listener()
     async def on_member_update(self, before, after):
         print("Member updated")
         sid = before.server.id
