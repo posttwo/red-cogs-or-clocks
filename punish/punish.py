@@ -37,7 +37,7 @@ class Mention(BaseCog):
     async def on_member_update(self, before, after):
         sid = before.server.id
         member_data = await self.config.member(before).forced_nickname
-        if member_data is "":
+        if member_data == "":
             return
 
         if before.nick != after.nick and after.nick != member_data:
