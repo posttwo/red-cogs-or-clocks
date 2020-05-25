@@ -1,7 +1,9 @@
 import discord
 from redbot.core import Config, commands, checks, bot
 
-class PunishCog:
+BaseCog = getattr(commands, "Cog", object)
+
+class Mention(BaseCog):
 
     def __init__(self, bot):
         self.bot = bot
