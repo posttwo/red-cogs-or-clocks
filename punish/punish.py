@@ -25,14 +25,13 @@ class PunishCog(BaseCog):
     @checks.mod_or_permissions(manage_messages=True)
     async def punish_remove(self, ctx, member: discord.Member):
         """Allows user to have nickname changed"""
-        await self.config.member(member).forced_nickname.set("")
+        await self.config.member(member).clear_raw("forced_nickname")
         await ctx.send('{0} is now able to change his username'.format(member))
     
     @punish.command(pass_context=True, no_pm=True, name='list')
     async def punish_list(self, ctx):
         """Lists users that are blocked from changing their nickname"""
-        data = await self.config.all_members()
-        await ctx.send("Yeah this is fucked sorry. ```{0}```".format(data))
+        await ctx.send("Yeah this is fucked sorry.")
         
     @commands.Cog.listener()
     async def on_member_update(self, before, after):
@@ -46,4 +45,4 @@ class PunishCog(BaseCog):
         if before.nick != after.nick and after.nick != member_data:
             print("Trying to undo the name change")
             await after.edit(nick=member_data, reason="Punished user")
-            await after.send(content='{0} you are not allowed to change your nickname'.format(after.mention))
+            await after.send(content='{0} youre not allowed to change your nickname'.format(after.mention))
