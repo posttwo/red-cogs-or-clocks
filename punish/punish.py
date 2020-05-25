@@ -3,7 +3,7 @@ from redbot.core import Config, commands, checks, bot
 
 BaseCog = getattr(commands, "Cog", object)
 
-class Mention(BaseCog):
+class PunishCog(BaseCog):
 
     def __init__(self, bot):
         self.bot = bot
