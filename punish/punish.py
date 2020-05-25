@@ -18,7 +18,7 @@ class PunishCog(BaseCog):
     async def punish(self, ctx, member: discord.Member):
         """Stops user from having his nickname changed by ANYONE"""
         await self.config.member(ctx.author).forced_nickname.set(member.nick)
-        await self.bot.say('{0} is now unable to change his username'.format(member))
+        await ctx.send('{0} is now unable to change his username'.format(member))
     
     
     @punish.command(pass_context=True, no_pm=True, name='remove')
@@ -26,12 +26,12 @@ class PunishCog(BaseCog):
     async def punish_remove(self, ctx, member: discord.Member):
         """Allows user to have nickname changed"""
         await self.config.member(ctx.author).forced_nickname.set("")
-        await self.bot.say('{0} is now able to change his username'.format(member))
+        await ctx.send('{0} is now able to change his username'.format(member))
     
     @punish.command(pass_context=True, no_pm=True, name='list')
     async def punish_list(self, ctx):
         """Lists users that are blocked from changing their nickname"""
-        await self.bot.say("Yeah this is fucked sorry.")
+        await ctx.send("Yeah this is fucked sorry.")
         
         
     async def on_member_update(self, before, after):
