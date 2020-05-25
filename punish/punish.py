@@ -5,6 +5,7 @@ class PunishCog:
 
     def __init__(self, bot):
         self.bot = bot
+        self.config = Config.get_conf(self, identifier=487948989)
         self.config.register_member(
             forced_nickname=""
         )
