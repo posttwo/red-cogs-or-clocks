@@ -16,7 +16,7 @@ class Mention(BaseCog):
     @commands.command()
     async def mention(self, ctx, fjusername):
         """FunnyJunk username to Discord mention!"""
-        auth_token = await self.bot.db.api_tokens("fjmeme")
+        auth_token = await self.bot.get_shared_api_tokens("fjmeme")
         hed = {'Authorization': 'Bearer ' + auth_token['token']}
 
         url = 'https://fjme.me/api/fjmeme/funnyJunkToDiscord/' + fjusername
