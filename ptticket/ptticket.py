@@ -32,7 +32,7 @@ class PTTicket(commands.Cog):
             res = await self.create_ticket(ctx, title.content, description.content)
             await ctx.send(res)
         else:
-            await ctx.send("Ticket creation cancelled")
+            await ctx.send("Ticket creation cancelled sad face")
 
     @ticket.command(pass_context=True, name='escalate')
     @checks.mod_or_permissions(manage_messages=True)
