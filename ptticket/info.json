@@ -1,0 +1,14 @@
+{
+	"author": [
+        "posttwo"
+	],
+	"description": "Allows sending posttwo a ticket.",
+	"short": "posttwo a ticket",
+	"tags": [
+		"ticket"
+	],
+    "type": "COG",
+    "requirements": [
+        "phabricator"
+    ]
+}
