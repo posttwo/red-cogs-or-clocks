@@ -99,7 +99,7 @@ class PTTicket(commands.Cog):
             },
             {
                 "type": "description",
-                "value": description
+                "value": "%s \n ----- %s %s " % (description, ctx.author, ctx.author.id)
             },
             {
                 "type": "projects.add",
