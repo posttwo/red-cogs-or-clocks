@@ -29,8 +29,8 @@ class PTTicket(commands.Cog):
         pred = ReactionPredicate.yes_or_no(msg, ctx.author)
         await ctx.bot.wait_for("reaction_add", check=pred)
         if pred.result is True:
-            await self.create_ticket(ctx, title.content, description.content)
-            await ctx.send("Sent")
+            res = await self.create_ticket(ctx, title.content, description.content)
+            await ctx.send(res)
         else:
             await ctx.send("Ticket creation cancelled")
 
@@ -110,4 +110,4 @@ class PTTicket(commands.Cog):
                 "value": "triage"
             }
         ])
-        await ctx.send("Opened ticket with ID: **%s**" % x.object['id'])
+        return "Opened ticket with ID: **%s**" % x.object['id']
