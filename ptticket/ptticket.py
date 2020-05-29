@@ -110,4 +110,4 @@ class PTTicket(commands.Cog):
                 "value": "triage"
             }
         ])
-        ctx.send("Opened ticket with ID: **%s**" % x.object['id'])
+        await ctx.send("Opened ticket with ID: **%s**" % x.object['id'])
