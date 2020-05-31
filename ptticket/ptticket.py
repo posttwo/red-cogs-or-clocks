@@ -40,7 +40,7 @@ class PTTicket(commands.Cog):
         """Wakes posttwo up, you better know what youre doing"""
         auth_token = await ctx.bot.get_shared_api_tokens("phabricator")
         auth_token = auth_token['FJBot']
-        phab = Phabricator(host='https://p.mongla.net/api/', token=auth_token)
+        phab = Phabricator(host='https://p.mongla.net/api/', token=auth_token, timeout=20)
 
         ticket = phab.maniphest.search(
             constraints={
@@ -90,7 +90,7 @@ class PTTicket(commands.Cog):
     async def create_ticket(self, ctx, title, description):
         auth_token = await ctx.bot.get_shared_api_tokens("phabricator")
         auth_token = auth_token['FJBot']
-        phab = Phabricator(host='https://p.mongla.net/api/', token=auth_token)
+        phab = Phabricator(host='https://p.mongla.net/api/', token=auth_token, timeout=20)
         x = phab.maniphest.edit(transactions=[
             {
                 "type": "title",
